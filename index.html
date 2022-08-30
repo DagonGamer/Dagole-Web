@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dagole's Professional Website </title>
+
+    <link rel="shortcut icon" href="Foto Perfil.jpg" type="image/x-icon">
+    <link class="Estrellas" rel="stylesheet" href="Estrellas.css">
+
+    <style>
+
+        body {
+
+            --Color_Primario: #0c0c0c;
+            --Color_Secundario: #191919;
+            --Color_Secundario_Complementario: #494949;
+            --Color_Blanco: #ffffff;
+
+            background: var(--Color_Primario);
+            margin: 0px;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 1s;
+
+        }
+
+        div.Instagram {
+
+            --Tamaño: min(35rem, 80vw);
+            --TamañoREM: calc( var(--Tamaño) / 35 );
+
+            background: linear-gradient( 315deg, var(--Color_Secundario), var(--Color_Secundario_Complementario) );
+            border-radius: calc( var(--TamañoREM) * 1 );
+            width: var(--Tamaño);
+            height: calc( var(--TamañoREM) * 15 );
+            z-index: 1;
+
+        }
+
+        div.Perfil {
+
+            position: relative;
+            width: calc( var(--TamañoREM) * 10 );
+            height: calc( var(--TamañoREM) * 10 );
+            top: calc( var(--TamañoREM) * -5 );
+            left: calc( var(--TamañoREM) * 12.5 );
+            border-radius: calc( var(--TamañoREM) * 10 );
+            border: solid calc( var(--TamañoREM) * 0.15 ) var(--Color_Blanco);
+            overflow: hidden;
+
+        }
+
+        div.Perfil img {
+
+            width: calc( var(--TamañoREM) * 9.2 );
+            height: calc( var(--TamañoREM) * 9.2 );
+            border-radius: calc( var(--TamañoREM) * 10 );
+            border: solid calc( var(--TamañoREM) * 0.4 ) transparent;
+            overflow: hidden;
+
+        }
+
+        div.Instagram div.P {
+            display: flex;
+            align-items: end;
+            overflow: hidden;
+            max-height: calc( var(--TamañoREM) * 7.75 );
+            height: auto;
+            position: relative;
+            top: calc( var(--TamañoREM) * -3.5 );
+        }
+
+        div.Instagram div.P p {
+
+            font-family: monospace;
+            color: var(--Color_Blanco);
+            font-size: calc( var(--TamañoREM) * 1.25 );
+            text-align: center;
+            margin: 0px;
+            width: 100%;
+            white-space: pre;
+
+        }
+
+        div.Chat {
+            position: fixed;
+            width: calc( 100% - 4rem );
+            height: calc( 100% - 4rem );
+        }
+
+        div.Chat div.messages {
+            height: calc( 100% - 4rem );
+            background: var(--Color_Secundario);
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        div.Chat div.messages p {
+            color: var(--Color_Blanco);
+            font-family: Arial;
+            margin: 1rem 1rem 1rem auto;
+            width: fit-content;
+            height: fit-content;
+            padding: 1rem;
+            background: var(--Color_Primario);
+        }
+
+        div.Chat div.messages p.you {
+            margin: 1rem auto 1rem 1rem;
+        }
+
+        div.Chat input {
+            width: calc( 100% - 1rem );
+            padding: 0.5rem;
+            border: none;
+            height: 1.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            background: var(--Color_Secundario_Complementario);
+            color: var(--Color_Blanco);
+            outline: none;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+    <div class="Instagram">
+        <div class="Perfil">
+            <img src="Foto Perfil.jpg" title="Click para ir al perfil de Instagram" onclick="location.assign('https://www.instagram.com/da.go.le/')">
+        </div>
+        <div class="P">
+            <p></p>
+        </div>
+    </div>
+
+    <div class="Chat" hidden>
+        <form onsubmit="event.preventDefault(); Escribir(document.querySelector('div.Chat input').value); document.querySelector('div.Chat input').value = '';">
+            <input type="text">
+        </form>
+        <div class="messages">
+            <p class="me">Hola</p>
+            <p class="you">Hola</p>
+        </div>
+    </div>
+
+    <script>
+
+        let Escribir = (mensaje = "HOLA", Emisor = "you") => {
+
+            let mensajeP = document.createElement("p");
+            mensajeP.className = Emisor;
+            mensajeP.innerText = mensaje;
+            document.querySelector("div.Chat div.messages").insertBefore(mensajeP, document.querySelector("div.Chat div.messages p"));
+
+        }
+
+        let Texto = {
+
+            0: "|",
+            0.5: "",
+            1: "|",
+            1.5: "",
+            1.8: " W|",
+            1.9: " We|",
+            2: " Wel|",
+            2.1: " Welc|",
+            2.2: " Welco|",
+            2.3: " Welcom|",
+            2.4: " Welcome|",
+            2.5: " Welcome |",
+            2.6: " Welcome t|",
+            2.7: " Welcome to|",
+            2.8: " Welcome to |",
+            2.9: " Welcome to m|",
+            3: " Welcome to my|",
+            3.1: " Welcome to my |",
+            3.2: " Welcome to my p|",
+            3.3: " Welcome to my pr|",
+            3.4: " Welcome to my pro|",
+            3.5: " Welcome to my prof|",
+            3.6: " Welcome to my profe|",
+            3.7: " Welcome to my profes|",
+            3.8: " Welcome to my profess|",
+            3.9: " Welcome to my professi|",
+            4: " Welcome to my professio|",
+            4.1: " Welcome to my profession|",
+            4.2: " Welcome to my professiona|",
+            4.3: " Welcome to my professional|",
+            4.4: " Welcome to my professional |",
+            4.5: " Welcome to my professional w|",
+            4.6: " Welcome to my professional we|",
+            4.7: " Welcome to my professional web|",
+            4.8: " Welcome to my professional webs|",
+            4.9: " Welcome to my professional websi|",
+            5: " Welcome to my professional websit|",
+            5.1: " Welcome to my professional website|",
+            5.6: "Welcome to my professional website",
+            6.1: " Welcome to my professional website|",
+            6.6: "Welcome to my professional website",
+            7.1: " Welcome to my professional website|",
+            7.6: "Welcome to my professional website",
+            8.1: " Welcome to my professional website|",
+            8.6: "Welcome to my professional website",
+            9.1: " Welcome to my professional website|",
+            9.6: "Welcome to my professional website",
+            10.1: " Welcome to my professional website|",
+            10.6: "Welcome to my professional website",
+            11.1: " Welcome to my professional website|",
+            11.6: "Welcome to my professional website",
+            12.1: " Welcome to my professional website|",
+            12.6: "Welcome to my professional website",
+            13.1: " Welcome to my professional website|",
+            13.15: " Welcome to my professional websit|",
+            13.2: " Welcome to my professional websi|",
+            13.25: " Welcome to my professional webs|",
+            13.3: " Welcome to my professional web|",
+            13.35: " Welcome to my professional we|",
+            13.4: " Welcome to my professional w|",
+            13.45: " Welcome to my professional |",
+            13.5: " Welcome to my professional|",
+            13.55: " Welcome to my professiona|",
+            13.6: " Welcome to my profession|",
+            13.65: " Welcome to my professio|",
+            13.7: " Welcome to my professi|",
+            13.75: " Welcome to my profess|",
+            13.8: " Welcome to my profes|",
+            13.85: " Welcome to my profe|",
+            13.9: " Welcome to my prof|",
+            13.95: " Welcome to my pro|",
+            14: " Welcome to my pr|",
+            14.05: " Welcome to my p|",
+            14.1: " Welcome to my |",
+            14.15: " Welcome to my|",
+            14.2: " Welcome to m|",
+            14.25: " Welcome to |",
+            14.3: " Welcome to|",
+            14.35: " Welcome t|",
+            14.4: " Welcome |",
+            14.45: " Welcome|",
+            14.5: " Welcom|",
+            14.55: " Welco|",
+            14.6: " Welc|",
+            14.65: " Wel|",
+            14.7: " We|",
+            14.75: " W|",
+            14.8: "|",
+            15.3: "",
+            15.8: "|",
+            16: " N|",
+            16.1: " Na|",
+            16.2: " Nah|",
+            16.3: " Nah,|",
+            16.4: " Nah, |",
+            16.5: " Nah, e|",
+            16.6: " Nah, es|",
+            16.7: " Nah, es |",
+            16.8: " Nah, es c|",
+            16.9: " Nah, es co|",
+            17: " Nah, es coñ|",
+            17.1: " Nah, es coña|",
+            17.2: " Nah, es coña |",
+            17.3: " Nah, es coña j|",
+            17.4: " Nah, es coña ja|",
+            17.5: " Nah, es coña jaj|",
+            17.6: " Nah, es coña jaja|",
+            17.7: " Nah, es coña jajaj|",
+            17.8: " Nah, es coña jajaja|",
+            17.9: "Nah, es coña jajaja\n|",
+            18: "Nah, es coña jajaja\n Q|",
+            18.1: "Nah, es coña jajaja\n Qu|",
+            18.2: "Nah, es coña jajaja\n Qui|",
+            18.3: "Nah, es coña jajaja\n Quié|",
+            18.4: "Nah, es coña jajaja\n Quién|",
+            18.5: "Nah, es coña jajaja\n Quién |",
+            18.6: "Nah, es coña jajaja\n Quién s|",
+            18.7: "Nah, es coña jajaja\n Quién se|",
+            18.8: "Nah, es coña jajaja\n Quién se |",
+            18.9: "Nah, es coña jajaja\n Quién se c|",
+            19: "Nah, es coña jajaja\n Quién se cr|",
+            19.1: "Nah, es coña jajaja\n Quién se cre|",
+            19.2: "Nah, es coña jajaja\n Quién se cree|",
+            19.3: "Nah, es coña jajaja\n Quién se creer|",
+            19.4: "Nah, es coña jajaja\n Quién se creerí|",
+            19.5: "Nah, es coña jajaja\n Quién se creería|",
+            19.6: "Nah, es coña jajaja\n Quién se creería |",
+            19.7: "Nah, es coña jajaja\n Quién se creería q|",
+            19.8: "Nah, es coña jajaja\n Quién se creería qu|",
+            19.9: "Nah, es coña jajaja\n Quién se creería que|",
+            20: "Nah, es coña jajaja\n Quién se creería que |",
+            20.1: "Nah, es coña jajaja\n Quién se creería que y|",
+            20.2: "Nah, es coña jajaja\n Quién se creería que yo|",
+            20.3: "Nah, es coña jajaja\n Quién se creería que yo |",
+            20.4: "Nah, es coña jajaja\n Quién se creería que yo i|",
+            20.5: "Nah, es coña jajaja\n Quién se creería que yo ib|",
+            20.6: "Nah, es coña jajaja\n Quién se creería que yo iba|",
+            20.7: "Nah, es coña jajaja\n Quién se creería que yo iba |",
+            20.8: "Nah, es coña jajaja\n Quién se creería que yo iba a|",
+            20.9: "Nah, es coña jajaja\n Quién se creería que yo iba a |",
+            21: "Nah, es coña jajaja\n Quién se creería que yo iba a h|",
+            21.1: "Nah, es coña jajaja\n Quién se creería que yo iba a ha|",
+            21.2: "Nah, es coña jajaja\n Quién se creería que yo iba a hac|",
+            21.3: "Nah, es coña jajaja\n Quién se creería que yo iba a hace|",
+            21.4: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer|",
+            21.5: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer |",
+            21.6: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer a|",
+            21.7: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer al|",
+            21.8: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer alg|",
+            21.9: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo|",
+            22: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo |",
+            22.1: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo n|",
+            22.2: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo no|",
+            22.3: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo nor|",
+            22.4: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo norm|",
+            22.5: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo norma|",
+            22.6: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo normal|",
+            22.7: "Nah, es coña jajaja\n Quién se creería que yo iba a hacer algo normal?|",
+            22.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n|",
+            22.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n A|",
+            23: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Al|",
+            23.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala|",
+            23.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala,|",
+            23.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, p|",
+            23.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, po|",
+            23.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos|",
+            23.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos |",
+            23.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos v|",
+            23.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos va|",
+            23.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vam|",
+            24: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamo|",
+            24.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos|",
+            24.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos |",
+            24.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a|",
+            24.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a |",
+            24.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a h|",
+            24.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a ha|",
+            24.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hac|",
+            24.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hace|",
+            24.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer|",
+            25: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer |",
+            25.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer e|",
+            25.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer es|",
+            25.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer est|",
+            25.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta|",
+            25.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta |",
+            25.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta p|",
+            25.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta pá|",
+            25.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta pág|",
+            25.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta pági|",
+            26: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta págin|",
+            26.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página|",
+            26.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página |",
+            26.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página m|",
+            26.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mí|",
+            26.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía|",
+            26.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía |",
+            26.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía j|",
+            26.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía ja|",
+            26.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía jaj|",
+            27: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía jaja|",
+            27.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía jaja.|",
+            27.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.",
+            28.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\n Ala, pos vamos a hacer esta página mía jaja.|",
+            28.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.",
+            28.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n|",
+            28.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n|",
+            28.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n P|",
+            29: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Pr|",
+            29.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Pri|",
+            29.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Prim|",
+            29.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Prime|",
+            29.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primer|",
+            29.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero|",
+            29.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero |",
+            29.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero v|",
+            29.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero va|",
+            30: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vam|",
+            30.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamo|",
+            30.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos|",
+            30.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos |",
+            30.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a|",
+            30.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a |",
+            30.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a q|",
+            30.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a qu|",
+            30.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a qui|",
+            30.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quit|",
+            31: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quita|",
+            31.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar|",
+            31.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar |",
+            31.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar e|",
+            31.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el|",
+            31.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el |",
+            31.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el f|",
+            31.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fo|",
+            31.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fon|",
+            31.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fond|",
+            32: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fondo|",
+            32.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fondo |",
+            32.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fondo d|",
+            32.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\n Primero vamos a quitar el fondo de|",
+            32.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n|",
+            32.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n e|",
+            32.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n es|",
+            32.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n est|",
+            32.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estr|",
+            32.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estre|",
+            33: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrel|",
+            33.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrell|",
+            33.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrella|",
+            33.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas|",
+            33.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas |",
+            33.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas q|",
+            33.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas qu|",
+            33.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que|",
+            33.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que |",
+            33.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que s|",
+            34: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se|",
+            34.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se |",
+            34.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se v|",
+            34.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve|",
+            34.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve |",
+            34.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve m|",
+            34.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu|",
+            34.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu |",
+            34.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu c|",
+            34.9: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu ch|",
+            35: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chu|",
+            35.1: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chul|",
+            35.2: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo|",
+            35.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo.|",
+            35.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo.",
+            36.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. |",
+            36.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. j|",
+            36.5: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. ja|",
+            36.6: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. ja|",
+            36.7: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. jaja|",
+            36.8: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\n estrellas que se ve mu chulo. jaja.|",
+            37.3: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.",
+            37.4: "Nah, es coña jajaja\nQuién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n|",
+            37.5: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n|",
+            37.6: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n V|",
+            37.7: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Va|",
+            37.8: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vam|",
+            37.9: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamo|",
+            38: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos|",
+            38.1: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos |",
+            38.2: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a|",
+            38.3: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a |",
+            38.4: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a q|",
+            38.5: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a qu|",
+            38.6: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a qui|",
+            38.7: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quit|",
+            38.8: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quita|",
+            38.9: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar|",
+            39: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar |",
+            39.1: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar t|",
+            39.2: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar ta|",
+            39.3: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar tam|",
+            39.4: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar tamb|",
+            39.5: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar tambi|",
+            39.6: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar tambié|",
+            39.7: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también|",
+            39.8: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también |",
+            39.9: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también e|",
+            40: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el|",
+            40.1: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el |",
+            40.2: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el d|",
+            40.3: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el de|",
+            40.4: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el deg|",
+            40.5: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degr|",
+            40.6: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degra|",
+            40.7: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degrad|",
+            40.8: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degrada|",
+            40.9: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degradad|",
+            41: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degradado|",
+            41.1: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degradado.|",
+            41.6: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.",
+            42.1: "Quién se creería que yo iba a hacer algo normal?\nAla, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\n Vamos a quitar también el degradado.|",
+            42.2: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n|",
+            42.3: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y|",
+            42.4: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y |",
+            42.5: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y v|",
+            42.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y va|",
+            42.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vam|",
+            42.8: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamo|",
+            42.9: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos|",
+            43: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos |",
+            43.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos t|",
+            43.2: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos ta|",
+            43.3: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos tam|",
+            43.4: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos tamb|",
+            43.5: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos tambi|",
+            43.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos tambié|",
+            43.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también|",
+            43.8: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también |",
+            43.9: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a|",
+            44: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a |",
+            44.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a c|",
+            44.2: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a ca|",
+            44.3: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cam|",
+            44.4: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a camb|",
+            44.5: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambi|",
+            44.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambia|",
+            44.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar|",
+            44.8: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar |",
+            44.9: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar e|",
+            45: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el|",
+            45.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el |",
+            45.2: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el t|",
+            45.3: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el tí|",
+            45.4: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el tít|",
+            45.5: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el títu|",
+            45.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el títul|",
+            45.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título|",
+            45.8: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título |",
+            45.9: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a|",
+            46: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a |",
+            46.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a a|",
+            46.2: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a al|",
+            46.3: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a alg|",
+            46.4: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo|",
+            46.5: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo |",
+            46.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo m|",
+            46.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo me|",
+            46.8: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mej|",
+            46.9: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mejo|",
+            47: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mejor|",
+            47.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mejor.|",
+            47.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.",
+            48.1: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mejor.|",
+            48.6: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.",
+            48.7: "Ala, pos vamos a hacer esta página mía jaja.\n\nPrimero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\n Y vamos también a cambiar el título a algo mejor.|",
+            48.8: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n|",
+            48.9: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n J|",
+            49: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Ja|",
+            49.1: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jaj|",
+            49.2: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jaja|",
+            49.3: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jajaj|",
+            49.4: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jajaja|",
+            49.5: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jajaja.|",
+            50: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.",
+            50.5: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jajaja.|",
+            51: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.",
+            51.5: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\n Jajaja.|",
+            51.6: "Primero vamos a quitar el fondo de\nestrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n|",
+            51.7: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n|",
+            51.8: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n U|",
+            51.9: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Un|",
+            52: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una|",
+            52.1: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una |",
+            52.2: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una f|",
+            52.3: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una fo|",
+            52.4: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una fot|",
+            52.5: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto|",
+            52.6: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto |",
+            52.7: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto d|",
+            52.8: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de|",
+            52.9: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de |",
+            53: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de p|",
+            53.1: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de pe|",
+            53.2: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de per|",
+            53.3: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perf|",
+            53.4: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfi|",
+            53.5: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil|",
+            53.6: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil |",
+            53.7: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil c|",
+            53.8: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cu|",
+            53.9: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cua|",
+            54: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuad|",
+            54.1: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuadr|",
+            54.2: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuadra|",
+            54.3: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuadrad|",
+            54.4: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuadrada|",
+            54.5: "estrellas que se ve mu chulo. jaja.\n\nVamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\n Una foto de perfil cuadrada.|",
+            54.6: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n|",
+            54.7: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n S|",
+            54.8: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Si|",
+            54.9: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin|",
+            55: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin |",
+            55.1: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin b|",
+            55.2: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bo|",
+            55.3: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bor|",
+            55.4: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bord|",
+            55.5: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin borde|",
+            55.6: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes|",
+            55.7: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes |",
+            55.8: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y|",
+            55.9: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y |",
+            56: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a|",
+            56.1: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a |",
+            56.2: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a l|",
+            56.3: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la|",
+            56.4: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la |",
+            56.5: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la e|",
+            56.6: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la es|",
+            56.7: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esq|",
+            56.8: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esqu|",
+            56.9: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esqui|",
+            57: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esquin|",
+            57.1: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esquina|",
+            57.2: "Vamos a quitar también el degradado.\nY vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\n Sin bordes y a la esquina,|",
+            57.3: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n|",
+            57.4: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n p|",
+            57.5: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pe|",
+            57.6: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n per|",
+            57.7: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero|",
+            57.8: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero |",
+            57.9: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero u|",
+            58: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un|",
+            58.1: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un |",
+            58.2: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un p|",
+            58.3: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un po|",
+            58.4: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poc|",
+            58.5: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco|",
+            58.6: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco |",
+            58.7: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a|",
+            58.8: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a |",
+            58.9: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a l|",
+            59: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la|",
+            59.1: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la |",
+            59.2: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la d|",
+            59.3: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la de|",
+            59.4: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la der|",
+            59.5: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la dere|",
+            59.6: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derec|",
+            59.7: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derech|",
+            59.8: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha|",
+            59.9: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha,|",
+            60: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, |",
+            60.1: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, p|",
+            60.2: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, pa|",
+            60.3: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, par|",
+            60.4: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para|",
+            60.5: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para |",
+            60.6: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para e|",
+            60.7: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el|",
+            60.8: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el |",
+            60.9: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el T|",
+            61: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el TO|",
+            61.1: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el TOC|",
+            61.2: "Y vamos también a cambiar el título a algo mejor.\nJajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\n pero un poco a la derecha, para el TOC,|",
+            61.3: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n|",
+            61.4: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y|",
+            61.5: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y |",
+            61.6: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y t|",
+            61.7: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y to|",
+            61.8: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y tor|",
+            61.9: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torc|",
+            62: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torci|",
+            62.1: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcid|",
+            62.2: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida|",
+            62.3: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida |",
+            62.4: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida j|",
+            62.5: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida ja|",
+            62.6: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jaj|",
+            62.7: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jaja|",
+            62.8: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jajaj|",
+            62.9: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jajaja|",
+            63: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jajaja.|",
+            63.5: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.",
+            64: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\n y torcida jajaja.|",
+            64.5: "Jajaja.\n\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.",
+            64.6: "\nUna foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n|",
+            64.7: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n|",
+            64.8: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n C|",
+            64.9: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Ca|",
+            65: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caj|",
+            65.1: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja|",
+            65.2: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja |",
+            65.3: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja c|",
+            65.4: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cu|",
+            65.5: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cua|",
+            65.6: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuad|",
+            65.7: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadr|",
+            65.8: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadra|",
+            65.9: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrad|",
+            66: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada|",
+            66.1: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada |",
+            66.2: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y|",
+            66.3: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y |",
+            66.4: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y a|",
+            66.5: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y ac|",
+            66.6: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y act|",
+            66.7: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y acti|",
+            66.8: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activ|",
+            66.9: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activa|",
+            67: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activam|",
+            67.1: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamo|",
+            67.2: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos|",
+            67.3: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos |",
+            67.4: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos e|",
+            67.5: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el|",
+            67.6: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el |",
+            67.7: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el c|",
+            67.8: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el ch|",
+            67.9: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el cha|",
+            68: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el chat|",
+            68.1: "Una foto de perfil cuadrada.\nSin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\n Caja cuadrada y activamos el chat.|",
+            68.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n|",
+            68.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y|",
+            68.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y |",
+            68.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y f|",
+            68.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y fo|",
+            68.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y fot|",
+            68.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto|",
+            68.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto |",
+            69: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto t|",
+            69.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto tr|",
+            69.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto tra|",
+            69.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto tran|",
+            69.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto trans|",
+            69.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transp|",
+            69.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transpa|",
+            69.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transpar|",
+            69.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transpare|",
+            69.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparen|",
+            70: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparent|",
+            70.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente|",
+            70.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente,|",
+            70.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, |",
+            70.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, q|",
+            70.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, qu|",
+            70.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que|",
+            70.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que |",
+            70.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que n|",
+            70.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no|",
+            71: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no |",
+            71.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no s|",
+            71.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no so|",
+            71.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy|",
+            71.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy |",
+            71.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy t|",
+            71.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy ta|",
+            71.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan|",
+            71.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan |",
+            71.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan m|",
+            72: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan ma|",
+            72.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan mal|",
+            72.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo|",
+            72.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo |",
+            72.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo j|",
+            72.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo ja|",
+            72.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo jaj|",
+            72.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo jaja|",
+            72.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo jaja.|",
+            73.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.",
+            73.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\n Y foto transparente, que no soy tan malo jaja.|",
+            74.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.",
+            74.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n|",
+            74.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y|",
+            75: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y |",
+            75.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y y|",
+            75.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya|",
+            75.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya |",
+            75.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya p|",
+            75.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya po|",
+            75.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya pod|",
+            75.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya pode|",
+            75.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podem|",
+            75.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemo|",
+            76: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos|",
+            76.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos |",
+            76.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos e|",
+            76.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos el|",
+            76.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eli|",
+            76.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos elim|",
+            76.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos elimi|",
+            76.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos elimin|",
+            76.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos elimina|",
+            76.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar|",
+            77: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar |",
+            77.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar e|",
+            77.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el|",
+            77.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el |",
+            77.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el t|",
+            77.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el te|",
+            77.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el tex|",
+            77.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el text|",
+            77.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto|",
+            77.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto,|",
+            78: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, |",
+            78.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, M|",
+            78.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Ma|",
+            78.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mar|",
+            78.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari|",
+            78.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari |",
+            78.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari t|",
+            78.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te|",
+            78.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te |",
+            78.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te q|",
+            79: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te qu|",
+            79.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te qui|",
+            79.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quie|",
+            79.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quier|",
+            79.4: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero|",
+            79.5: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero |",
+            79.6: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero j|",
+            79.7: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero ja|",
+            79.8: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero jaj|",
+            79.9: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero jaja|",
+            80: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero jajaj|",
+            80.1: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero jajaja|",
+            80.2: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\n Y ya podemos eliminar el texto, Mari te quiero jajaja.|",
+            80.3: "Sin bordes y a la esquina,\npero un poco a la derecha, para el TOC,\ny torcida jajaja.\n\nCaja cuadrada y activamos el chat.\nY foto transparente, que no soy tan malo jaja.\nY ya podemos eliminar el texto, Mari te quiero jajaja.",
+
+        }
+
+        Object.keys(Texto).forEach(key => {
+            setTimeout(() => {
+                document.querySelector("div.Instagram p").innerText = Texto[key];
+            }, Number(key) * 1000);
+        });
+
+        setTimeout(() => {
+            document.querySelector("body").style = "background: var(--Color_Primario) !important;";
+            document.querySelector("body #stars").style.opacity = 0;
+            document.querySelector("body #stars2").style.opacity = 0;
+            document.querySelector("body #stars3").style.opacity = 0;
+            setTimeout( () => document.querySelector("link.Estrellas").remove(), 1000 );
+        }, 36000);
+
+        setTimeout(() => {
+            document.querySelector("div.Instagram").style = "background: var(--Color_Secundario) !important;";
+        }, 41300);
+
+        setTimeout(() => {
+            document.querySelector("title").innerHTML = "Página normal";
+        }, 47300);
+
+        setTimeout(() => {
+            document.querySelector("div.Perfil").style.borderRadius = "0px";
+            document.querySelector("div.Perfil img").style.borderRadius = "0px";
+        }, 54700);
+
+        setTimeout(() => {
+            document.querySelector("div.Perfil").style.border = "none";
+        }, 55800);
+
+        setTimeout(() => {
+            document.querySelector("div.Perfil img").style.position = "fixed";
+            document.querySelector("div.Perfil img").style.top = "0px";
+            document.querySelector("div.Perfil img").style.left = "0px";
+            document.querySelector("div.Perfil img").style.border = "none";
+        }, 57300);
+
+        setTimeout(() => {
+            document.querySelector("div.Perfil img").style.left = "calc( var(--TamañoREM) * 2 )";
+        }, 60000);
+        
+        setTimeout(() => {
+            document.querySelector("div.Perfil img").style.transform = "rotate(20deg)";
+        }, 62400);
+        
+        setTimeout(() => {
+            document.querySelector("div.Instagram").style.borderRadius = "0px";
+        }, 66300);
+        
+        setTimeout(() => {
+            document.querySelector("div.Chat").hidden = false;
+            document.querySelector("div.Chat input").focus();
+        }, 68300);
+
+        setTimeout(() => {
+            document.querySelector("div.Perfil img").style.opacity = "0.5";
+        }, 70500);
+
+        setTimeout(() => {
+            document.querySelector("div.Instagram").style.background = "transparent";
+            document.querySelector("div.Instagram div.P").style.opacity = "0";
+        }, 77900);
+
+    </script>
+    
+</body>
+</html>
