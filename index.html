@@ -25,6 +25,7 @@
             align-items: center;
             justify-content: center;
             transition: all 1s;
+            overflow: hidden;
 
         }
 
@@ -866,7 +867,6 @@
         
         setTimeout(() => {
             document.querySelector("div.Chat").hidden = false;
-            document.querySelector("div.Chat input").focus();
         }, 68300);
 
         setTimeout(() => {
@@ -876,6 +876,7 @@
         setTimeout(() => {
             document.querySelector("div.Instagram").style.background = "transparent";
             document.querySelector("div.Instagram div.P").style.opacity = "0";
+            document.querySelector("div.Chat input").focus();
         }, 77900);
 
     </script>
