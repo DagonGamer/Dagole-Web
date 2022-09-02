@@ -108,6 +108,7 @@
             height: fit-content;
             padding: 1rem;
             background: var(--Color_Primario);
+            max-width: calc( 100% - 10rem );
         }
 
         div.Chat div.messages p.you {
@@ -149,10 +150,11 @@
             <input type="text">
         </form>
         <div class="messages">
-            <p class="me">Hola</p>
-            <p class="you">Hola</p>
+
         </div>
     </div>
+
+    <script src="Preguntas.js"></script>
 
     <script>
 
@@ -161,7 +163,19 @@
             let mensajeP = document.createElement("p");
             mensajeP.className = Emisor;
             mensajeP.innerText = mensaje;
-            document.querySelector("div.Chat div.messages").insertBefore(mensajeP, document.querySelector("div.Chat div.messages p"));
+            document.querySelector("div.Chat div.messages").appendChild(mensajeP);
+            document.querySelector("div.Chat div.messages").scrollTop = document.querySelector("div.Chat div.messages").scrollHeight - document.querySelector("div.Chat div.messages").offsetHeight;
+
+            if (Emisor == "you") {
+                if ( Preguntas[mensaje] ) {
+                    if (typeof Preguntas[mensaje] == "string") Escribir(Preguntas[mensaje], "me");
+                    else {
+                        let RespuestaAleatoria = Math.ceil(Math.random() * Preguntas[mensaje].length) - 1;
+                        Escribir(Preguntas[mensaje][RespuestaAleatoria], "me");
+                    }
+                }
+                else Escribir("Lo siento para eso no tengo respuesta jaja", "me")
+            }
 
         }
 
@@ -878,6 +892,8 @@
             document.querySelector("div.Instagram div.P").style.opacity = "0";
             document.querySelector("div.Chat input").focus();
         }, 77900);
+
+        setTimeout(Escribir, 79000, "Hola, soy Dagole, un bot de la cuenta Dagole de instagram, jaja.\nSi escribes mensajes te responderé, a veces si te responderé y otras veces no jaja.\nSolo tienes que escribir el mensaje correcto para que te responda, por ejemplo, si me preguntas 'Que hay de comer?', te responderé, pero si me preguntas 'que hay de comer?' o '¿Que hay de comer' no te responderé jaja.", "me");
 
     </script>
     
