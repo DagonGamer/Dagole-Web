@@ -167,6 +167,7 @@
             document.querySelector("div.Chat div.messages").scrollTop = document.querySelector("div.Chat div.messages").scrollHeight - document.querySelector("div.Chat div.messages").offsetHeight;
 
             if (Emisor == "you") {
+                if ( mensaje.replaceAll("j", "").replaceAll("a", "") == "" ) mensaje = "Riete";
                 if ( Preguntas[mensaje] ) {
                     if (typeof Preguntas[mensaje] == "string") Escribir(Preguntas[mensaje], "me");
                     else {

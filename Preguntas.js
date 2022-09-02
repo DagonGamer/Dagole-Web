@@ -45,6 +45,16 @@ var Preguntas = {
     // Más cosas
 
     "Preguntame": "Eres feliz?",
+    "Riete": [
+        "jajajjajajja",
+        "jajjajja",
+        "jajaj",
+        "jajajjajajajaj",
+        "jaja",
+        "jajajajjajajajajajaj",
+        "jjajaj",
+        "jajajajajjajajajaj"
+    ],
 
     // Preguntas
 
